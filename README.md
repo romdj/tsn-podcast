@@ -1,2 +1,2 @@
 # tsn-podcast
-Web crawler that translates into automate into a podcast channel
+Web crawler that translates webpage content into a podcast channel
