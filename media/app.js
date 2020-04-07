@@ -82,6 +82,12 @@ const darrenDreger = [
 const gordMiller = [
   'https://iphone.tsn.ca/MillerMar2520.mp3'
 ];
+const others = [
+  'https://iphone.tsn.ca/CammalleriApr0620.mp3',
+  ];
+const michaelFarber = [
+  'https://iphone.tsn.ca/FarberApr0620.mp3',
+  ];
 const ericMacramalla = [
   'https://iphone.tsn.ca/tsnpodcasts/macapr22020.mp3'
 ];
