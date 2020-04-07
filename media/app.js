@@ -96,6 +96,7 @@ const pierreMcGuire = [
   'https://iphone.tsn.ca/McGuireMar2520.mp3',
   'https://iphone.tsn.ca/McGuireMar2620.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuireApril32020.mp3',
+  'https://iphone.tsn.ca/McGuireApr0620.mp3',
 ];
 
 // console.log(moment().format('MMM'));
