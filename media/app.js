@@ -32,7 +32,7 @@ const urlStructure = [
         .toLowerCase()
     },
     suffix: '.mp3',
-    weekSchedule: [0, 1, 2, 3, 4]
+    weekSchedule: [1, 3]
   },
   {
     name: 'Andrew Zadarnowski',
