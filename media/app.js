@@ -71,6 +71,8 @@ const rayFerraro = [
   'https://iphone.tsn.ca/FerraroMar2420.mp3',
   'https://iphone.tsn.ca/FerraroMar2620.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/RayFerraroFULLApril22020.mp3',
+  'https://iphone.tsn.ca/FerraroApr0920.mp3',
+  
 ];
 const aaronWard = [
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/AaronWardFULLApril22020.mp3'
@@ -97,6 +99,11 @@ const pierreMcGuire = [
   'https://iphone.tsn.ca/McGuireMar2620.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuireApril32020.mp3',
   'https://iphone.tsn.ca/McGuireApr0620.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire130420.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire100420.mp3',
+  'https://iphone.tsn.ca/McGuireApr0920.mp3',
+  'https://iphone.tsn.ca/McGuireApr0820.mp3',
+  'https://iphone.tsn.ca/McGuireApr0620.mp3'
 ];
 
 // console.log(moment().format('MMM'));
