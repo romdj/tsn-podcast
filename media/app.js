@@ -107,6 +107,14 @@ const pierreMcGuire = [
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42820.mp3',
   'https://iphone.tsn.ca/McGuireApr2120.mp3',
   'https://iphone.tsn.ca/McGuireMay1220.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire010520.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire300420.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire040520.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire050520.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire060520.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire070520.mp3',
+  'https://iphone.tsn.ca/McGuireMay1120.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire080520.mp3',
   'https://iphone.tsn.ca/McGuireMay1320.mp3'
 ];
 
