@@ -72,7 +72,7 @@ const rayFerraro = [
   'https://iphone.tsn.ca/FerraroMar2620.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/RayFerraroFULLApril22020.mp3',
   'https://iphone.tsn.ca/FerraroApr0920.mp3',
-  
+
 ];
 const aaronWard = [
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/AaronWardFULLApril22020.mp3'
@@ -86,10 +86,10 @@ const gordMiller = [
 ];
 const others = [
   'https://iphone.tsn.ca/CammalleriApr0620.mp3',
-  ];
+];
 const michaelFarber = [
   'https://iphone.tsn.ca/FarberApr0620.mp3',
-  ];
+];
 const ericMacramalla = [
   'https://iphone.tsn.ca/tsnpodcasts/macapr22020.mp3'
 ];
@@ -105,6 +105,8 @@ const pierreMcGuire = [
   'https://iphone.tsn.ca/McGuireApr0820.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42720.mp3',
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42820.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire010520.mp3',
+  'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire300420.mp3',
   'https://iphone.tsn.ca/McGuireApr2120.mp3'
 ];
 
@@ -132,4 +134,20 @@ function downloadFile(path, interviewee) {
 function getPath(date, interviewee) {
   return [interviewee.prefix, interviewee.dateStructure(date), interviewee.suffix].join('');
 }
-'https://iphone.tsn.ca/tsnpodcasts/dennyapr22020.mp3'
+console.log('something something something ')
+// 'https://iphone.tsn.ca/tsnpodcasts/dennyapr22020.mp3'
+function getMP3File(url) {
+  rq.get('https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42020.mp3')
+    .then(data => {
+      console.log('ok')
+    })
+    .catch(err => console.log(err))
+  // const dataBuffer = Buffer.from(data); writeFileSync('output.mp3', data)
+}
+getMP3File('https://iphone.tsn.ca/McGuireApr2120.mp3');
+getMP3File('https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42020.mp3');
+
+
+function findRightURL(date, analyst, formats){
+  
+}
