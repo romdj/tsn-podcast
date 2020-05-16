@@ -13,43 +13,73 @@ const date = moment(intervalStartDate);
 
 const urlStructure = [
   {
-    name: 'Marc Denis',
-    prefix: 'https://iphone.tsn.ca/tsnpodcasts/denny',
-    dateStructure: (date) => {
-      return moment(date)
-        .format('MMMDYYYY')
-        .toLowerCase()
-    },
-    suffix: '.mp3',
+    fullName: 'Marc Denis',
+    firstName: 'Marc',
+    lastName: 'Denis',
     weekSchedule: [0, 1, 2, 3, 4]
   },
   {
-    name: 'Ray Ferraro',
-    prefix: 'https://iphone.tsn.ca/tsnpodcasts/tsnradio/RayFerraroFULL',
-    dateStructure: (date) => {
-      return moment(date)
-        .format('MMMMDYYYY')
-        .toLowerCase()
-    },
-    suffix: '.mp3',
+    fullName: 'Ray Ferraro',
+    firstName: 'Ray',
+    lastName: 'Ferraro',
     weekSchedule: [1, 3]
   },
   {
-    name: 'Andrew Zadarnowski',
-    prefix: 'https://iphone.tsn.ca/tsnpodcasts/tsnradio/Zadarnowski',
-    dateStructure: (date) => {
-      return moment(date)
-        .format('MD')
-    },
-    suffix: '.mp3',
+    fullName: 'Andrew Zadarnowski',
+    firstName: 'Andrew',
+    lastName: 'Zadarnowski',
     weekSchedule: [6]
   },
   {
-    name: 'Pierre McGuire',
-    dateStructure: '',
+    fullName: 'Pierre McGuire',
+    firstName: 'Pierre',
+    lastName: 'McGuire',
     weekSchedule: [0, 1, 2, 3, 4]
   },
+  {
+    fullName: 'Bob McKenzie',
+    firstName: 'Bob',
+    lastName: 'McKenzie',
+    weekSchedule: []
+  },
+  {
+    fullName: 'Marc Dumont',
+    firstName: 'Marc',
+    lastName: 'Dumont',
+    weekSchedule: []
+  },
+  {
+    fullName: 'Aaron Ward',
+    firstName: 'Aaron',
+    lastName: 'Ward',
+    weekSchedule: [1,3]
+  },
+  {
+    fullName: 'Darren Dreger',
+    firstName: 'Darren',
+    lastName: 'Dreger',
+    weekSchedule: []
+  },
+  {
+    fullName: 'Gord Miller',
+    firstName: 'Gord',
+    lastName: 'Miller',
+    weekSchedule: []
+  },
+  {
+    fullName: 'Michael Farber',
+    firstName: 'Michael',
+    lastName: 'Farber',
+    weekSchedule: []
+  },
+  {
+    fullName: 'Eric Macramalla',
+    firstName: 'Eric',
+    lastName: 'Macramalla',
+    weekSchedule: []
+  },
 ];
+
 
 const arponBasu = [
   'https://iphone.tsn.ca/basumar2420.mp3',
@@ -124,11 +154,11 @@ const pierreMcGuire = [
 // console.log(moment().format('MMM'));
 // console.log(urlStructure[0].dateStructure(intervalStartDate));
 
-const iwee = urlStructure[0];
+// const iwee = urlStructure[0];
 
-if (isIntervieweeDay(intervalExampleDate, iwee)) {
-  downloadFile(getPath(intervalExampleDate, iwee), iwee);
-};
+// if (isIntervieweeDay(intervalExampleDate, iwee)) {
+// downloadFile(getPath(intervalExampleDate, iwee), iwee);
+// };
 
 function isIntervieweeDay(date, interviewee) {
   return interviewee.weekSchedule.includes(moment(date).month() - 1);
@@ -145,8 +175,8 @@ function downloadFile(path, interviewee) {
 function getPath(date, interviewee) {
   return [interviewee.prefix, interviewee.dateStructure(date), interviewee.suffix].join('');
 }
-console.log('something something something ')
 // 'https://iphone.tsn.ca/tsnpodcasts/dennyapr22020.mp3'
+
 function getMP3File(url) {
   rq.get('https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42020.mp3')
     .then(data => {
@@ -155,10 +185,61 @@ function getMP3File(url) {
     .catch(err => console.log(err))
   // const dataBuffer = Buffer.from(data); writeFileSync('output.mp3', data)
 }
-getMP3File('https://iphone.tsn.ca/McGuireApr2120.mp3');
-getMP3File('https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42020.mp3');
+// getMP3File('https://iphone.tsn.ca/McGuireApr2120.mp3');
+// getMP3File('https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire42020.mp3');
 
 
-function findRightURL(date, analyst, formats){
-  
+function findWorkingURL(urls) {
+
 }
+
+function generateAllURLs(isTsn, analyst, date) {
+  const providerPrefix = isTsn ? getTSNURLPrefix() : null;
+  const analystStrings = getAnalystStr(analyst);
+  const dateFormats = getDateFormats(date);
+  return cartesianProduct([providerPrefix, analystStrings, dateFormats]);
+}
+
+
+const getAnalystStr = (analyst) => {
+  return [
+    analyst.lastName.replace(' ', ''),
+    analyst.lastName.replace(' ', '').toLowerCase(),
+    analyst.lastName.replace(' ', '').toLowerCase().slice(0, 3),
+    analyst.lastName.replace(' ', '').toLowerCase().slice(0, 4),
+    analyst.fullName.replace(' ', ''),
+    analyst.fullName.replace(' ', '').toLowerCase(),
+    analyst.firstName.replace(' ', ''),
+    analyst.firstName.replace(' ', '').toLowerCase(),
+  ];
+};
+
+const getDateFormats = (date) => {
+  return [
+    date.format("DDMMYY"),
+    date.format("MDDYY"),
+    date.format("MMMDDYY"),
+    date.format("MMMDDYY").toLowerCase()
+  ];
+}
+
+const getTSNURLPrefix = () => { return ['https://iphone.tsn.ca/', 'https://iphone.tsn.ca/tsnpodcasts/', 'https://iphone.tsn.ca/tsnpodcasts/tsnradio/'] };
+
+// const getURL = (urlTSNPrefix, analyst, formattedDate) => {
+//   return `${urlTSNPrefix}${analyst}${formattedDate}`;
+// }
+
+function cartesianProduct(arr) {
+  return arr.reduce((a, b) => {
+    return a.map(x => {
+      return b.map(y => {
+        return x.concat([y]);
+      })
+    })
+      .reduce((a, b) => { return a.concat(b) }, [])
+  }, [[]])
+    .map(item => item.join(''));
+}
+
+
+console.log(generateAllURLs(true, urlStructure[3], moment()));
