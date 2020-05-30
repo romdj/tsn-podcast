@@ -52,7 +52,7 @@ const urlStructure = [
     fullName: 'Aaron Ward',
     firstName: 'Aaron',
     lastName: 'Ward',
-    weekSchedule: [1,3]
+    weekSchedule: [1, 3]
   },
   {
     fullName: 'Darren Dreger',
@@ -150,7 +150,8 @@ const pierreMcGuire = [
   'https://iphone.tsn.ca/tsnpodcasts/tsnradio/McGuire080520.mp3',
   'https://iphone.tsn.ca/McGuireMay1320.mp3',
   'https://iphone.tsn.ca/McGuireMay1420.mp3',
-  'https://iphone.tsn.ca/McGuireMay1520.mp3'
+  'https://iphone.tsn.ca/McGuireMay1520.mp3',
+  'https://iphone.tsn.ca/McGuireMay2920.mp3'
 ];
 
 // console.log(moment().format('MMM'));
