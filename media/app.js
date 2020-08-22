@@ -168,11 +168,11 @@ function isIntervieweeDay(date, interviewee) {
 }
 
 function downloadFile(path, interviewee) {
-  console.log(`fetching: ${path}`);
-  if (useWget)
-    process.exec
+  // console.log(`fetching: ${path}`);
+  // if (useWget)
+  // process.exec
   rq.get(path)
-    .then(data => writeFileSync(`output/${interviewee.name.replace(' ', '_').toLowerCase()}${date.format('DDMMMYYYY')}.mp3`, Buffer.from(data)));
+    .then(data => writeFileSync(`dlfOutput/${interviewee.name.replace(' ', '_').toLowerCase()}${date.format('DDMMMYYYY')}.mp3`, Buffer.from(data)));
 }
 
 function getPath(date, interviewee) {
@@ -203,6 +203,15 @@ function generateAllURLs(isTsn, analyst, date) {
   return cartesianProduct([providerPrefix, analystStrings, dateFormats]);
 }
 
+const getAllDates = (begin, end) => {
+  const dateCollection = [];
+  let ticker = moment(begin);
+  while (ticker.isBefore(moment(end))) {
+    dateCollection.push(ticker.format("YYYY-MM-DD"));
+    ticker.add(1, 'd');
+  }
+  return dateCollection;
+}
 
 const getAnalystStr = (analyst) => {
   return [
@@ -245,4 +254,8 @@ function cartesianProduct(arr) {
 }
 
 
-console.log(generateAllURLs(true, urlStructure[3], moment()));
+// console.log(generateAllURLs(true, urlStructure[3], moment()));
+// downloadFile('https://iphone.tsn.ca/McGuireMay2920.mp3', {name: 'McGuire'});
+// getMP3File('https://iphone.tsn.ca/McGuireMay2920.mp4');
+// getMP3File
+console.log(getAllDates('2010-01-24', '2010-02-24'));
