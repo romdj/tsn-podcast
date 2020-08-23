@@ -1,12 +1,14 @@
 {
   "name": "code-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web parser for TSN Podcasts DB Building",
   "main": "index.js",
   "scripts": {
+    "build": "npm ci; babel src -d dist --source-maps",
+    "clean": "rm -rf node_modules dist",
     "test": "NODE_ENV=test ava"
   },
-  "author": "Karl Laurentius Roos",
+  "author": "romdj",
   "engines": {
     "node": ">=9"
   },
@@ -28,6 +30,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/register": "^7.10.1",
     "ava": "^2.4.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.4.0"
   }
