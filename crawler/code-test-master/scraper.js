@@ -108,9 +108,15 @@ const parsePodcastInfo = (page) => {
 }
 
 export const parseNowPlayingTitle = (page) => {
+  const $ = cheerio.load(page)
+  console.log($('div .headline'));
+  return $('div .headline').children('h1')
   throw new Error('NOT IMPLEMENTED YET');
 }
 export const parseNowPlayingDescription = (page) => {
+  const $ = cheerio.load(page)
+  return $('div .headline').children('p .lead')
+
   throw new Error('NOT IMPLEMENTED YET');
 }
 export const parseNowPLaying = (page) => {
@@ -128,10 +134,11 @@ export const parseNowPLaying = (page) => {
   // div mejs-mediaelement
   // audio .src
 
-  // const something = $('.content-container').children('audio').attr('src')
-  // console.log(`fetching podcast link: ${something}`);
-  const mediaUrl = $('.mejs-mediaelement').children('audio').attr('src')
-  console.log(`fetching podcast link: ${mediaUrl}`);
+  return $('audio').attr('src')
+  // const mediaUrl = $('audio').map(something => console.log(something));
+
+  // children('audio').attr('src')
+  // console.log(`fetching podcast link: ${mediaUrl}`);
 
 
 
