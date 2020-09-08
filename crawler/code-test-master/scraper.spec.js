@@ -1,5 +1,5 @@
-import { parseNowPLaying, parseNowPlayingTitle, parseNowPlayingDescription } from '../scraper'
-import { readFileSync } from 'fs'
+const { parseNowPLaying, parseNowPlayingTitle, parseNowPlayingDescription } = require('./scraper')
+const { readFileSync } = require('fs')
 
 describe('TSN Parsing Validation', () => {
   let page;

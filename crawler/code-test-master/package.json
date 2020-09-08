@@ -4,7 +4,7 @@
   "description": "Web parser for TSN Podcasts DB Building",
   "main": "scraper.js",
   "scripts": {
-    "test": "jest test/scraper.js"
+    "test": "jest"
   },
   "author": "romdj",
   "engines": {
