@@ -11,9 +11,11 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@jest/globals": "^26.4.2",
     "cheerio": "^1.0.0-rc.3",
     "htmlparser2": "^4.1.0",
     "jest": "^26.4.2",
+    "jest-environment-node": "^26.3.0",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8"
   },

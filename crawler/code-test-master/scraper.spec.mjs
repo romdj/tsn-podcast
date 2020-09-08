@@ -1,4 +1,4 @@
-
+import {jest} from '@jest/globals';
 import { parseNowPLaying, parseNowPlayingTitle, parseNowPlayingDescription } from '../scraper'
 import { readFileSync } from 'fs'
 
