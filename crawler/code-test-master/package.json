@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm ci; babel src -d dist --source-maps",
     "clean": "rm -rf node_modules dist",
-    "test": "NODE_ENV=test ava"
+    "test": "jest test/scraper.js"
   },
   "author": "romdj",
   "engines": {
@@ -21,6 +21,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "htmlparser2": "^4.1.0",
+    "jest": "^26.4.2",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8"
   },
