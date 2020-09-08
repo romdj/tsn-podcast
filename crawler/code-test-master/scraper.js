@@ -1,11 +1,11 @@
-import cheerio from 'cheerio'
-import rq from 'request-promise-native'
-import { readFileSync } from 'fs'
+const cheerio = require('cheerio')
+const rq = require('request-promise-native')
+const { readFileSync } = require('fs')
 
 const radioWebsiteRoot = 'https://www.tsn.ca/radio/montreal-690'
 const fetchAll = false;
 
-export const parseTSNPodcasts = async () => {
+const parseTSNPodcasts = async () => {
   const url = `${radioWebsiteRoot}/audio`
   const page = await fetchPage(url);
   if (fetchAll) {
@@ -108,7 +108,7 @@ const parsePodcastInfo = (page) => {
   return { link, title };
 }
 
-export const parseNowPlayingTitle = (page) => {
+const parseNowPlayingTitle = (page) => {
   const $ = cheerio.load(page)
   // console.log($('div .headline'));
   const something = $('div .headline')
@@ -124,13 +124,13 @@ export const parseNowPlayingTitle = (page) => {
   console.log(`something:${something}`);
   throw new Error('NOT IMPLEMENTED YET');
 }
-export const parseNowPlayingDescription = (page) => {
+const parseNowPlayingDescription = (page) => {
   const $ = cheerio.load(page)
   return $('div .headline').children('p .lead')
 
   throw new Error('NOT IMPLEMENTED YET');
 }
-export const parseNowPLaying = (page) => {
+const parseNowPLaying = (page) => {
   const $ = cheerio.load(page)
 
   // div content-container
@@ -164,3 +164,10 @@ export const parseNowPLaying = (page) => {
 // parseNowPLaying(page);
 const page = readFileSync('./test/data/sampleMTLPage.html');
 parseNowPlayingTitle(page);
+
+module.exports(
+  parseTSNPodcasts,
+  parseNowPlayingTitle,
+  parseNowPlayingDescription,
+  parseNowPLaying
+)
