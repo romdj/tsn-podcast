@@ -1,5 +1,6 @@
 import cheerio from 'cheerio'
 import rq from 'request-promise-native'
+import { readFileSync } from 'fs'
 
 const radioWebsiteRoot = 'https://www.tsn.ca/radio/montreal-690'
 const fetchAll = false;
@@ -109,8 +110,18 @@ const parsePodcastInfo = (page) => {
 
 export const parseNowPlayingTitle = (page) => {
   const $ = cheerio.load(page)
-  console.log($('div .headline'));
-  return $('div .headline').children('h1')
+  // console.log($('div .headline'));
+  const something = $('div .headline')
+    .map((index, element) => {
+      console.log(`index:${index}`);
+      console.log(`element:${JSON.stringify(element, function (key, value) {
+        if (key == 'parent') { return 'circular something'; }
+        else { return value; }
+      })}`);
+
+      return this
+    }).get();// .children('h1')
+  console.log(`something:${something}`);
   throw new Error('NOT IMPLEMENTED YET');
 }
 export const parseNowPlayingDescription = (page) => {
@@ -151,3 +162,5 @@ export const parseNowPLaying = (page) => {
 // const url = `${radioWebsiteRoot}/audio`
 // const page = await fetchPage(url);
 // parseNowPLaying(page);
+const page = readFileSync('./test/data/sampleMTLPage.html');
+parseNowPlayingTitle(page);
