@@ -8,6 +8,8 @@
   "moduleFileExtensions": [
     "js",
     "jsx",
+    "ts",
+    "tsx",
     "mjs"
   ]
 }
