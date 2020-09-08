@@ -3,20 +3,21 @@ const rq = require('request-promise-native')
 const { readFileSync } = require('fs')
 
 const radioWebsiteRoot = 'https://www.tsn.ca/radio/montreal-690'
-const fetchAll = false;
 
-const parseTSNPodcasts = async () => {
+const parseTSNPodcasts = async (fetchAll = false) => {
   const url = `${radioWebsiteRoot}/audio`
+  const pages = [];
   const page = await fetchPage(url);
+  pages.push(page);
   if (fetchAll) {
     for (let pageNumber = 2; pageNumber < 10; pageNumber++) {
-      const redirectedURL = url; //getURLPostDirection();
+      const redirectedURL = url;
       `${redirectedURL}/more-audio-7.325290?ot=example.AjaxPageLayout.ot&pageNum=${pageNumber}&dataType=json`;
+      const newPage = await fetchPage(url);
+      pages.push(newPage);
     }
   }
   const podcastFile = parsePodcastInfo(page)
-  legislator.url = url
-  return [legislator]
 }
 
 
@@ -30,7 +31,8 @@ const parsePodcastURL = async (url) => {
 const parsePodcastInfo = (page) => {
   const link = parseNowPLayingMediaURL(page);
   const title = parseNowPlayingTitle(page);
-  return { link, title };
+  const description = parseNowPlayingDescription(page);
+  return { link, title, description };
 }
 
 const parseNowPlayingTitle = (page) => {
