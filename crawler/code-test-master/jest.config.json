@@ -1,6 +1,6 @@
 {
   "testEnvironment": "jest-environment-node",
-  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(mjs?|jsx?|js?|tsx?|ts?)$",
   "testPathIgnorePatterns": [
     "<rootDir>/build/",
     "<rootDir>/node_modules/"
