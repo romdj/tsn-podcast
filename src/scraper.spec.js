@@ -4,7 +4,7 @@ const { readFileSync } = require('fs')
 describe('TSN Parsing Validation', () => {
   let page;
   beforeEach(() => {
-    page = readFileSync('./test/data/sampleMTLPage.html')
+    page = readFileSync('__test_data__/unit/sampleMTLPage.html')
   })
   it('test for media URL', () => {
     expect(parseNowPLayingMediaURL(page)).toMatch('https://iphone.tsn.ca/HabsPostGameAugust212020.mp3');
