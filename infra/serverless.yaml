@@ -9,3 +9,11 @@ custom:
   profiles:
     dev: devProfile
     prod: prodProfile
+functions:
+  hello:
+    handler: users.hello
+    events:
+      - http:
+          path: hello
+          method: get
+    
