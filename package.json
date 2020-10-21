@@ -4,6 +4,7 @@
   "description": "Web parser for TSN Podcasts DB Building",
   "main": "scraper.js",
   "scripts": {
+    "build": "npm ci; npm test",
     "test": "jest"
   },
   "author": "romdj",
